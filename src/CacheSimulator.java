@@ -308,4 +308,10 @@ public class CacheSimulator {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "hits:"+cache.getHit_count()+" misses:"+cache.getMiss_count()+" evictions:" +cache.getEvictions();
+    }
+
 }
