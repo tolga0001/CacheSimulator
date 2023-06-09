@@ -39,8 +39,7 @@ public class Cache {
 
     public int getAddressSize() {
         // variables
-        int addressSize = 32;
-        return addressSize;
+        return 32;
     }
 
     public int getSetBitSize() {
@@ -78,7 +77,7 @@ public class Cache {
     }
 
     public int getBlockSize() {
-        return (int) Math.pow(2,b);
+        return (int) Math.pow(2, b);
     }
 }
 
@@ -87,12 +86,14 @@ class Block {
     int time;
     char valid;
     String data;
+    boolean isMiss;
 
     public Block(String tag, int time, String data) {
         this.tag = tag;
         this.time = time;
         this.data = data;
         valid = '0';
+        isMiss = true;
     }
 
 }

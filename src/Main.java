@@ -2,15 +2,22 @@
 
 public class Main {
     public static void main(String[] args) {
-        if(args.length < 8) {
-            System.out.println("incorrect input! " + args.length);
+        int s, b, E;
+        String traceFile;
+        if (args.length < 8) {
+            System.out.println("incorrect input! ");
+            s = 2;
+            b = 3;
+            E = 8;
+            traceFile = "test.txt";
+        } else {
+            String[] arr = new String[8];
+            takeInput(args, arr);
+            s =2; //Integer.parseInt(arr[0]);
+            b =3; //Integer.parseInt(arr[1]);
+            E =8; //Integer.parseInt(arr[2]);
+            traceFile = arr[3];
         }
-        String[] arr = new String[8];
-        takeInput(args, arr);
-        int s = Integer.parseInt(arr[0]);
-        int b = Integer.parseInt(arr[1]);
-        int E = Integer.parseInt(arr[2]);
-        String traceFile = arr[3];
         String ramFileName = "RAM.dat";
 
         Cache cache = new Cache(s, b, E);
@@ -23,8 +30,8 @@ public class Main {
     }
 
     public static void takeInput(String[] testArr, String[] arr) {
-        for(int i = 1; i < 8; i = i+2) {
-            switch (testArr[i-1]) {
+        for (int i = 1; i < 8; i = i + 2) {
+            switch (testArr[i - 1]) {
                 case "-s":
                     arr[0] = testArr[i];
                     break;

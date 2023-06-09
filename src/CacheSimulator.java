@@ -7,6 +7,7 @@ public class CacheSimulator {
     String TraceFileName;
     String RamFileName;
     ArrayList<String> ramDatas;
+    ArrayList<String> outputs;
 
 
     public CacheSimulator(Cache cache, String traceFileName, String ramFileName) {
@@ -14,6 +15,7 @@ public class CacheSimulator {
         TraceFileName = traceFileName;
         RamFileName = ramFileName;
         ramDatas = new ArrayList<>();
+        outputs = new ArrayList<>();
         readRam();
     }
 
@@ -50,20 +52,25 @@ public class CacheSimulator {
             case "L" -> {
                 operationAddress = instruction[1];
                 size = Integer.parseInt(instruction[2]);
+                outputs.add(operationType + " "+operationAddress+"," + " " + size + "\n");
                 // TODO: 8.06.2023  fonksiyon tamamlanacak
                 applyLoadOperation(operationAddress, size);
+
             }
             case "S" -> {
                 operationAddress = instruction[1];
                 size = Integer.parseInt(instruction[2]);
                 data = instruction[3];
+                outputs.add(operationType +" "+operationAddress+ "," + " " + size + ", " + data + "\n");
                 // TODO: 8.06.2023  fonksiyon tamamlanacak
                 applyStoreOperation(operationAddress, size, data);
+
             }
             case "M" -> {
                 operationAddress = instruction[1];
                 size = Integer.parseInt(instruction[2]);
                 data = instruction[3];
+                outputs.add(operationType + "," + " " + size + ", " + data + "\n");
                 // TODO: 8.06.2023 fonksiyon tamamlanacak
                 applyDataModifyOperation(operationAddress, size, data);
             }
@@ -95,6 +102,7 @@ public class CacheSimulator {
         int lineNumber = getLine(setIndex, tag);
         Block block = cache.cacheTable[setIndex][lineNumber];
         if (isEmptyBlock(block)) {
+            outputs.add("   Miss\n Place in cache");
             return;
         }
         String oldData = block.data;
@@ -108,6 +116,11 @@ public class CacheSimulator {
             j++;
         }
         block.data = String.valueOf(old_data);
+        if (block.isMiss) {
+            outputs.add("  Miss\n Place in cache\n");
+        } else {
+            outputs.add("  Hit\n  Store in cache and RAM\n");
+        }
 
 
     }
@@ -130,6 +143,12 @@ public class CacheSimulator {
         block.valid = '1';
         block.data = currentData;
         block.time++;
+        // print the result of the block
+        if (block.isMiss) {
+            outputs.add("  Miss\n  Place in cache\n");
+        } else {
+            outputs.add("  Hit\n   Store in cache and RAM\n");
+        }
 
 
     }
@@ -148,6 +167,7 @@ public class CacheSimulator {
             currentBlock = cache.cacheTable[setNumber][blockNo];
             if (currentBlock.tag.equals(tag)) {
                 cache.hit_count++;
+                currentBlock.isMiss = false;
                 return blockNo;
             }
         }
@@ -240,12 +260,12 @@ public class CacheSimulator {
     private int getSetId(String operationAddress) {
         // hexa number
         int startingIndex = cache.getAddressSize() - cache.getBlockBitSize() - cache.getSetBitSize();
-        int size = startingIndex + cache.getSetBitSize();
+        int last = startingIndex + cache.getSetBitSize() - 1;
         char ch;
         int idValue = 0;
         int digitValue = 1;
         int decimalvalue;
-        for (int i = size - 1; i >= startingIndex; i--) {
+        for (int i = last; i >= startingIndex; i--) {
             ch = operationAddress.charAt(i);
             decimalvalue = ch - '0';
             idValue += decimalvalue * digitValue;
@@ -311,7 +331,16 @@ public class CacheSimulator {
 
     @Override
     public String toString() {
-        return "hits:"+cache.getHit_count()+" misses:"+cache.getMiss_count()+" evictions:" +cache.getEvictions();
+        String messages = convertString();
+        return "\thits:" + cache.getHit_count() + " misses:" + cache.getMiss_count() + " evictions:" + cache.getEvictions() + "\n\n" + messages;
+    }
+
+    private String convertString() {
+        StringBuilder str = new StringBuilder();
+        for (String message : outputs) {
+            str.append(message);
+        }
+        return String.valueOf(str);
     }
 
 }
