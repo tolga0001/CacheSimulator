@@ -76,6 +76,10 @@ public class Cache {
         return (int) Math.pow(2, b);
 
     }
+
+    public int getBlockSize() {
+        return (int) Math.pow(2,b);
+    }
 }
 
 class Block {

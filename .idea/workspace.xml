@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2d80b73-d0ae-4569-bbbe-e67c1e56c372" name="Changes" comment="RAM FILE IS ADDED FUNCTION COMPLETED PRINTING PARTS ARE MISSING">
+    <list default="true" id="f2d80b73-d0ae-4569-bbbe-e67c1e56c372" name="Changes" comment="SOME FIXES">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CacheSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CacheSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686305196339</updated>
       <workItem from="1686305197492" duration="260000" />
-      <workItem from="1686305571284" duration="3907000" />
+      <workItem from="1686305571284" duration="4975000" />
     </task>
     <task id="LOCAL-00001" summary="PRINTING IS MISSING">
       <created>1686305371884</created>
@@ -70,7 +69,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686306080821</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="SOME FIXES">
+      <created>1686309507990</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686309507990</updated>
+    </task>
+    <task id="LOCAL-00005" summary="SOME FIXES">
+      <created>1686309655534</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686309655534</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,7 +104,8 @@
     <MESSAGE value="PRINTING IS MISSING" />
     <MESSAGE value="PRINTING PART IS NEEDED" />
     <MESSAGE value="RAM FILE IS ADDED FUNCTION COMPLETED PRINTING PARTS ARE MISSING" />
-    <option name="LAST_COMMIT_MESSAGE" value="RAM FILE IS ADDED FUNCTION COMPLETED PRINTING PARTS ARE MISSING" />
+    <MESSAGE value="SOME FIXES" />
+    <option name="LAST_COMMIT_MESSAGE" value="SOME FIXES" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -103,7 +117,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CacheSimulator.java</url>
-          <line>103</line>
+          <line>100</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

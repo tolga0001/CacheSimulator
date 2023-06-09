@@ -6,7 +6,7 @@ public class Main {
         int s = 2;//Integer.parseInt(args[0]);
         int b =3;// Integer.parseInt(args[1]);
         int E =8; // Integer.parseInt(args[2]);
-        String traceFile = "test_small.trace"; //args[3];
+        String traceFile = "test_large.trace"; //args[3];
         String ramFileName = "RAM.dat";
 
         Cache cache = new Cache(s, b, E);

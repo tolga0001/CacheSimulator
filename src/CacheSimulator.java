@@ -47,31 +47,27 @@ public class CacheSimulator {
         String data;
 
         switch (operationType) {
-            case "L":
+            case "L" -> {
                 operationAddress = instruction[1];
                 size = Integer.parseInt(instruction[2]);
                 // TODO: 8.06.2023  fonksiyon tamamlanacak
                 applyLoadOperation(operationAddress, size);
-                break;
-
-            case "S":
+            }
+            case "S" -> {
                 operationAddress = instruction[1];
                 size = Integer.parseInt(instruction[2]);
                 data = instruction[3];
                 // TODO: 8.06.2023  fonksiyon tamamlanacak
                 applyStoreOperation(operationAddress, size, data);
-                break;
-
-            case "M":
+            }
+            case "M" -> {
                 operationAddress = instruction[1];
                 size = Integer.parseInt(instruction[2]);
                 data = instruction[3];
                 // TODO: 8.06.2023 fonksiyon tamamlanacak
                 applyDataModifyOperation(operationAddress, size, data);
-                break;
-            default:
-                System.out.println("ONLY L S AND M ARE ALLOWED");
-
+            }
+            default -> System.out.println("ONLY L S AND M ARE ALLOWED");
         }
 
 
@@ -104,9 +100,10 @@ public class CacheSimulator {
         String oldData = block.data;
         char[] old_data = oldData.toCharArray();
         char newCh;
+        int cachIndex = address % cache.getBlockSize(); // find the correct position in cache which index we will start changing data?
         j = 0;
-        for (int i = 0; i < old_data.length; i++) {
-            newCh = data.charAt(j);
+        for (int i = cachIndex; i < cachIndex + size * 2; i++) {
+            newCh = data.charAt(i);
             old_data[j] = newCh;
             j++;
         }
@@ -194,7 +191,7 @@ public class CacheSimulator {
         int blockbitSize = cache.getBlockBitSize();
         int groupNumber = index / blockbitSize;
         int startingIndex = groupNumber * blockbitSize;
-        for (int i = startingIndex; i < startingIndex + blockbitSize; i++) {
+        for (int i = startingIndex; i < startingIndex + cache.getBlockSize(); i++) {
             fullBlockData.append(ramDatas.get(i));
 
         }
