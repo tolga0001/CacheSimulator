@@ -21,7 +21,7 @@ public class Cache {
     public void initializeCache() {
         // the  number of Line for each set is b
         // create two dimensional array to represent the cache table
-        int setNumber = (int) Math.pow(2, s);
+        int setNumber = getNumberOfSets();
         int lineNumber = E;
         cacheTable = new Block[setNumber][lineNumber];
         for (int i = 0; i < setNumber; i++) {
@@ -29,6 +29,10 @@ public class Cache {
                 cacheTable[i][j] = new Block("", 0, "");
             }
         }
+    }
+
+    private int getNumberOfSets() {
+        return (int) Math.pow(2, s);
     }
 
 
@@ -72,12 +76,27 @@ public class Cache {
     }
 
     public int getNumberOfBlocks() {
-        return (int) Math.pow(2, b);
+        return  E;
 
     }
 
     public int getBlockSize() {
         return (int) Math.pow(2, b);
+    }
+
+    @Override
+    public String toString() {
+        Block block;
+        StringBuilder cacheInfo = new StringBuilder();
+        for (int setId = 0; setId < getNumberOfSets(); setId++) {
+            for (int blockId = 0; blockId < getNumberOfBlocks(); blockId++) {
+                block = cacheTable[setId][blockId];
+                cacheInfo.append(block.toString());
+            }
+
+        }
+        return String.valueOf(cacheInfo);
+
     }
 }
 
@@ -94,6 +113,11 @@ class Block {
         this.data = data;
         valid = '0';
         isMiss = true;
+    }
+
+    // @Override
+    public String toString() {
+        return "Cache Tag: " + tag + " time: " + time + " " + "v: " + valid + " " + "data: " + data + "\n";
     }
 
 }

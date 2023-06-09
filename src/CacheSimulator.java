@@ -102,7 +102,7 @@ public class CacheSimulator {
         int lineNumber = getLine(setIndex, tag);
         Block block = cache.cacheTable[setIndex][lineNumber];
         if (isEmptyBlock(block)) {
-            outputs.add("   Miss\n Place in cache");
+            outputs.add("  Miss\n Store in RAM\n");
             return;
         }
         String oldData = block.data;
@@ -111,13 +111,13 @@ public class CacheSimulator {
         int cachIndex = address % cache.getBlockSize(); // find the correct position in cache which index we will start changing data?
         j = 0;
         for (int i = cachIndex; i < cachIndex + size * 2; i++) {
-            newCh = data.charAt(i);
-            old_data[j] = newCh;
+            newCh = data.charAt(j);
+            old_data[i] = newCh;
             j++;
         }
         block.data = String.valueOf(old_data);
         if (block.isMiss) {
-            outputs.add("  Miss\n Place in cache\n");
+            outputs.add("  Miss\n Store in cache and RAM\n");
         } else {
             outputs.add("  Hit\n  Store in cache and RAM\n");
         }
@@ -145,9 +145,9 @@ public class CacheSimulator {
         block.time++;
         // print the result of the block
         if (block.isMiss) {
-            outputs.add("  Miss\n  Place in cache\n");
+            outputs.add("  Miss\n  Place in set "+setNumber+"\n");
         } else {
-            outputs.add("  Hit\n   Store in cache and RAM\n");
+            outputs.add("  Hit\n  Place in set "+setNumber+"\n");
         }
 
 
@@ -203,14 +203,14 @@ public class CacheSimulator {
 
     private String readData(int index, int size) {
 
-        if (size > cache.getNumberOfLines()) {
+        if (size > cache.getBlockSize()) {
             return getPartialData(index, size);
         }
         StringBuilder fullBlockData = new StringBuilder();
         // if enough capasity occurs take all the data
-        int blockbitSize = cache.getBlockBitSize();
-        int groupNumber = index / blockbitSize;
-        int startingIndex = groupNumber * blockbitSize;
+        int blockSize = cache.getBlockSize();
+        int groupNumber = index / blockSize;
+        int startingIndex = groupNumber * blockSize;
         for (int i = startingIndex; i < startingIndex + cache.getBlockSize(); i++) {
             fullBlockData.append(ramDatas.get(i));
 
