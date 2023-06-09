@@ -104,7 +104,7 @@ public class CacheSimulator {
         char[] old_data = oldData.toCharArray();
         char newCh;
         j = 0;
-        for (int i = address; i < address + size * 2; i++) {
+        for (int i = 0; i < old_data.length; i++) {
             newCh = data.charAt(j);
             old_data[j] = newCh;
             j++;
@@ -242,12 +242,12 @@ public class CacheSimulator {
     private int getSetId(String operationAddress) {
         // hexa number
         int startingIndex = cache.getAddressSize() - cache.getBlockBitSize() - cache.getSetBitSize();
-        int last = startingIndex + cache.getSetBitSize();
+        int size = startingIndex + cache.getSetBitSize();
         char ch;
         int idValue = 0;
         int digitValue = 1;
         int decimalvalue;
-        for (int i = startingIndex; i < last; i++) {
+        for (int i = size - 1; i >= startingIndex; i--) {
             ch = operationAddress.charAt(i);
             decimalvalue = ch - '0';
             idValue += decimalvalue * digitValue;

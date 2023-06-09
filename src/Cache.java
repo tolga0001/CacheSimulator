@@ -7,7 +7,7 @@ public class Cache {
     int evictions;
     Block[][] cacheTable;
 
-// Cache Constructor
+    // Cache Constructor
     public Cache(int s, int b, int E) {
         this.s = s;
         this.b = b;
@@ -24,6 +24,11 @@ public class Cache {
         int setNumber = (int) Math.pow(2, s);
         int lineNumber = E;
         cacheTable = new Block[setNumber][lineNumber];
+        for (int i = 0; i < setNumber; i++) {
+            for (int j = 0; j < lineNumber; j++) {
+                cacheTable[i][j] = new Block("", 0, "");
+            }
+        }
     }
 
 
