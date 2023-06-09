@@ -68,6 +68,7 @@ public class CacheSimulator {
                 data = instruction[3];
                 // TODO: 8.06.2023 fonksiyon tamamlanacak
                 applyDataModifyOperation(operationAddress, size, data);
+                break;
             default:
                 System.out.println("ONLY L S AND M ARE ALLOWED");
 
