@@ -7,7 +7,7 @@ public class Cache {
     int evictions;
     Block[][] cacheTable;
 
-    // Cache Constructor
+    // Cache Constructor hh
     public Cache(int s, int b, int E) {
         this.s = s;
         this.b = b;
