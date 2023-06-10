@@ -2,14 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2d80b73-d0ae-4569-bbbe-e67c1e56c372" name="Changes" comment="PRINTING TO CONSOLE IS COMPLETED">
-      <change afterPath="$PROJECT_DIR$/Cache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RAM.dat" beforeDir="false" afterPath="$PROJECT_DIR$/RAM.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CacheSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CacheSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RAM.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/RAM.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test_large.trace" beforeDir="false" afterPath="$PROJECT_DIR$/src/test_large.trace" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_large.trace" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +81,10 @@
       <workItem from="1686323610873" duration="871000" />
       <workItem from="1686324613946" duration="8194000" />
       <workItem from="1686332879286" duration="5611000" />
-      <workItem from="1686338808441" duration="1307000" />
+      <workItem from="1686338808441" duration="4837000" />
+      <workItem from="1686343665944" duration="1600000" />
+      <workItem from="1686345270969" duration="169000" />
+      <workItem from="1686345443916" duration="12947000" />
     </task>
     <task id="LOCAL-00001" summary="PRINTING IS MISSING">
       <created>1686305371884</created>
@@ -137,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686329755985</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="PRINTING TO CONSOLE IS COMPLETED">
+      <created>1686340360337</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686340360337</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,21 +175,5 @@
     <MESSAGE value="INPUT PART IS COMPLETED" />
     <MESSAGE value="PRINTING TO CONSOLE IS COMPLETED" />
     <option name="LAST_COMMIT_MESSAGE" value="PRINTING TO CONSOLE IS COMPLETED" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CacheSimulator.java</url>
-          <line>213</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

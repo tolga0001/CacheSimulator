@@ -51,10 +51,6 @@ public class Cache {
     }
 
 
-    public int getNumberOfLines() {
-        return E;
-    }
-
     public int getHit_count() {
         return hit_count;
     }
@@ -65,14 +61,6 @@ public class Cache {
 
     public int getEvictions() {
         return evictions;
-    }
-
-    public Block[][] getCacheTable() {
-        return cacheTable;
-    }
-
-    public int getSetSize() {
-        return (int) Math.pow(2, s);
     }
 
     public int getNumberOfBlocks() {

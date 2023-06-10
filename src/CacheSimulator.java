@@ -3,13 +3,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CacheSimulator {
+
+    // variables
     Cache cache;
     String TraceFileName;
     String RamFileName;
+    DataInputStream input;
     ArrayList<String> ramDatas;
     ArrayList<String> outputs;
 
-
+// argument constructor
     public CacheSimulator(Cache cache, String traceFileName, String ramFileName) {
         this.cache = cache;
         TraceFileName = traceFileName;
@@ -19,6 +22,12 @@ public class CacheSimulator {
         readRam();
     }
 
+    // default constructor
+    public CacheSimulator() {
+
+    }
+
+ // it is  used to read the ram file
     public void readRam() {
         DataInputStream input;
         try {
@@ -31,6 +40,51 @@ public class CacheSimulator {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+    }
+
+    // after finishing operations change the binary file
+    public void updateRam() {
+        FileOutputStream output;
+        try {
+            output = new FileOutputStream(RamFileName);
+            byte[] newData = new byte[ramDatas.size()];
+            int i = 0;
+            for (String hexa : ramDatas) {
+                byte value = convertHexaToDecimal(hexa);
+                newData[i] = value;
+                i++;
+            }
+            output.write(newData);
+            output.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+   // its used to write the  Ram content to txt file
+    public void writeContentOfRam(String fileName) {
+        File output = new File(fileName);
+        FileWriter writer;
+        try {
+            writer = new FileWriter(output);
+            for (String content:ramDatas) {
+                writer.write(content+"\n");
+            }
+            writer.close();
+
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    private byte convertHexaToDecimal(String hex) {
+        return (byte) Integer.parseInt(hex, 16);
+
 
     }
 
@@ -52,7 +106,7 @@ public class CacheSimulator {
             case "L" -> {
                 operationAddress = instruction[1];
                 size = Integer.parseInt(instruction[2]);
-                outputs.add(operationType + " "+operationAddress+"," + " " + size + "\n");
+                outputs.add(operationType + " " + operationAddress + "," + " " + size + "\n");
                 // TODO: 8.06.2023  fonksiyon tamamlanacak
                 applyLoadOperation(operationAddress, size);
 
@@ -61,7 +115,7 @@ public class CacheSimulator {
                 operationAddress = instruction[1];
                 size = Integer.parseInt(instruction[2]);
                 data = instruction[3];
-                outputs.add(operationType +" "+operationAddress+ "," + " " + size + ", " + data + "\n");
+                outputs.add(operationType + " " + operationAddress + "," + " " + size + ", " + data + "\n");
                 // TODO: 8.06.2023  fonksiyon tamamlanacak
                 applyStoreOperation(operationAddress, size, data);
 
@@ -70,7 +124,7 @@ public class CacheSimulator {
                 operationAddress = instruction[1];
                 size = Integer.parseInt(instruction[2]);
                 data = instruction[3];
-                outputs.add(operationType + "," + " " + size + ", " + data + "\n");
+                outputs.add(operationType + " " + operationAddress + "," + " " + size + ", " + data + "\n");
                 // TODO: 8.06.2023 fonksiyon tamamlanacak
                 applyDataModifyOperation(operationAddress, size, data);
             }
@@ -105,6 +159,7 @@ public class CacheSimulator {
             outputs.add("  Miss\n Store in RAM\n");
             return;
         }
+
         String oldData = block.data;
         char[] old_data = oldData.toCharArray();
         char newCh;
@@ -145,9 +200,9 @@ public class CacheSimulator {
         block.time++;
         // print the result of the block
         if (block.isMiss) {
-            outputs.add("  Miss\n  Place in set "+setNumber+"\n");
+            outputs.add("  Miss\n  Place in set " + setNumber + "\n");
         } else {
-            outputs.add("  Hit\n  Place in set "+setNumber+"\n");
+            outputs.add("  Hit\n  Place in set " + setNumber + "\n");
         }
 
 
@@ -342,5 +397,6 @@ public class CacheSimulator {
         }
         return String.valueOf(str);
     }
+
 
 }
