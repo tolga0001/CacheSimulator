@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2d80b73-d0ae-4569-bbbe-e67c1e56c372" name="Changes" comment="PRINTING TO CONSOLE IS COMPLETED">
-      <change afterPath="$PROJECT_DIR$/src/Cache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Cache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RAM.dat" beforeDir="false" afterPath="$PROJECT_DIR$/RAM.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CacheSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CacheSimulator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RAM.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/RAM.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_large.trace" beforeDir="false" afterPath="$PROJECT_DIR$/src/test_large.trace" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
-    </list>
+    <list default="true" id="f2d80b73-d0ae-4569-bbbe-e67c1e56c372" name="Changes" comment="PRINTING TO CONSOLE IS COMPLETED" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +74,7 @@
       <workItem from="1686343665944" duration="1600000" />
       <workItem from="1686345270969" duration="169000" />
       <workItem from="1686345443916" duration="12947000" />
+      <workItem from="1686396000663" duration="15000" />
     </task>
     <task id="LOCAL-00001" summary="PRINTING IS MISSING">
       <created>1686305371884</created>
